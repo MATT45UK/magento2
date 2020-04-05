@@ -20,6 +20,9 @@ services:
     restart: always
     ports:
       - 8080:8080
+    networks:
+      frontend:
+        ipv4_address: 172.18.0.202
 
   magneto:
     build: .
@@ -28,6 +31,9 @@ services:
       - 80:80
     volumes:
     - ./:/var/www/html/magento2
+    networks:
+      frontend:
+        ipv4_address: 172.18.0.201
 
 networks:
   frontend:
